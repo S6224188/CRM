@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tykjdx.dao.StudentDao">
+    <insert id="insert" >
+        insert  into student values (#{id},#{name},#{email},#{age})
+    </insert>
+
+    <select id="selectByIdAndAge" resultType="com.tykjdx.domain.Student">
+        select *from student
+        <where>
+            id = #{id} and age =#{age}
+        </where>
+    </select>
+
+    <!--查询姓名为zs班级为一年一的学生-->
+    <select id="selectByClassId"  parameterType="map" resultType="com.tykjdx.domain.Student">
+        select * from student s left join class c on s.classId=c.classId
+        where s.name=#{name} and c.className=#{className}
+    </select>
+
+    <select id="selectByMap"  resultType="map">
+        select * from student
+    </select>
+</mapper>

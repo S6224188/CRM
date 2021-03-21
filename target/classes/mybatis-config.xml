@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"/>
+    <settings>
+        <!--mybatis中添加日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--数据库的连接信息和id对应-->
+    <environments default="development">
+        <!--数据库的环境-->
+        <environment id="development">
+            <!--mybatis事务的类型-->
+            <transactionManager type="JDBC"/>
+            <!--type：数据源的类型，POOLED表示使用连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <package name="com.tykjdx.dao"/>
+        <!--从编译后的target类路径下找 找到的是sql映射文件-->
+        <!--<mapper resource="com/tykjdx/dao/StudentDao.xml"/>-->
+    </mappers>
+</configuration>

@@ -1,0 +1,9 @@
+com\tykjdx\service\Impl\StudentServiceImpl.class
+com\tykjdx\service\StudentService.class
+com\tykjdx\domain\Student.class
+com\tykjdx\util\Handler.class
+com\tykjdx\util\UUIDUtil.class
+com\tykjdx\util\SqlSessionUtil.class
+com\tykjdx\Test.class
+com\tykjdx\util\ServiceFactory.class
+com\tykjdx\dao\StudentDao.class
